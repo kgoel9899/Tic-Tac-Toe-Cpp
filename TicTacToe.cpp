@@ -56,8 +56,8 @@ int Win() {
 // returns the best possible score out of all the possible combinations (backtracking)
 int Minimax(bool human_chance, int depth) {
     int ans = Win();
-    if(ans == 20) return ans - depth;
-    else if(ans == -20) return ans + depth;
+    if(ans == 20) return ans;
+    else if(ans == -20) return ans;
     else if(Tie()) return 0;
 
     if(human_chance) {
