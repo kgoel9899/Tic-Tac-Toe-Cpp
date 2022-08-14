@@ -8,7 +8,7 @@ const static char computer = 'O';
 const static char nothing = '-';
 vector<vector<char>> board;
 
-// tells whether there is tie or not (i.e. are there any moves left)
+// tells whether there is a tie or not (i.e. are there any moves left)
 bool Tie() {
     for(int i=0;i<3;i++) {
         for(int j=0;j<3;j++) {
@@ -56,8 +56,8 @@ int Win() {
 // returns the best possible score out of all the possible combinations (backtracking)
 int Minimax(bool human_chance, int depth) {
     int ans = Win();
-    if(ans == 20) return ans;
-    else if(ans == -20) return ans;
+    if(ans == 20) return ans - depth;
+    else if(ans == -20) return ans + depth;
     else if(Tie()) return 0;
 
     if(human_chance) {
